@@ -12,7 +12,6 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24
-          cache: npm
-      - run: npm install
+      - run: npm install --no-audit --no-fund
       - run: npm run check
       - run: npm test
