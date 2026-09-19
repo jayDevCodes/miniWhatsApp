@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { createHash } from 'node:crypto';
 import { Conversation, Message, User, Session } from './models.js';
 import { createSession, hashPassword, verifyPassword } from './security.js';
 
@@ -56,7 +57,7 @@ export async function loginUser(data, req) {
 }
 
 export async function logoutUser(token) {
-  if (token) await Session.deleteOne({ tokenHash: (await import('node:crypto')).createHash('sha256').update(token).digest('hex') });
+  if (token) await Session.deleteOne({ tokenHash: createHash('sha256').update(token).digest('hex') });
 }
 
 export async function getConversationForUser(conversationId, userId) {
