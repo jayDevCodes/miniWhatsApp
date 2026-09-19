@@ -1,21 +1,25 @@
 {
-  "name": "mongodb2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "miniwhatsapp",
+  "version": "2.0.0",
+  "description": "Modern real-time messaging application built with Node.js, Express, MongoDB and Socket.IO.",
+  "main": "src/server.js",
+  "type": "module",
+  "engines": { "node": ">=24" },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node scripts/seed.js",
+    "test": "node --test",
+    "check": "node --check src/server.js && node --check src/app.js && node --check src/services.js && node --check public/app.js"
   },
-  "keywords": [],
-  "author": "jay dev",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "@faker-js/faker": "^10.3.0",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
-    "method-override": "^3.0.0",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
     "mongoose": "^9.2.1",
-    "nodemon": "^3.1.11"
-  }
+    "socket.io": "^4.8.3",
+    "zod": "^4.6.5"
+  },
+  "license": "ISC"
 }

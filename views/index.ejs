@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content='miniWhatsApp modern real-time messaging demo'>
+  <title>miniWhatsApp</title>
+  <link rel='stylesheet' href='/style.css'>
+</head>
+<body>
+<main class='shell'>
+  <section id='authPanel' class='panel auth-panel'>
+    <div class='brand'><span class='brand-mark'>M</span><div><h1>miniWhatsApp</h1><p>Modern real-time messaging</p></div></div>
+    <div class='auth-grid'>
+      <form id='loginForm' class='card'>
+        <h2>Sign in</h2>
+        <label>Email<input name='email' type='email' autocomplete='email' required></label>
+        <label>Password<input name='password' type='password' autocomplete='current-password' required></label>
+        <button type='submit'>Sign in</button>
+      </form>
+      <form id='registerForm' class='card'>
+        <h2>Create account</h2>
+        <label>Username<input name='username' autocomplete='username' required></label>
+        <label>Display name<input name='displayName' autocomplete='name'></label>
+        <label>Email<input name='email' type='email' autocomplete='email' required></label>
+        <label>Password<input name='password' type='password' autocomplete='new-password' minlength='8' required></label>
+        <button type='submit'>Create account</button>
+      </form>
+    </div>
+    <p id='authStatus' class='status' role='status'></p>
+  </section>
+
+  <section id='appPanel' class='app panel hidden'>
+    <aside class='sidebar'>
+      <div class='sidebar-header'>
+        <div><span class='eyebrow'>Signed in as</span><strong id='currentUser'></strong></div>
+        <button id='logoutButton' class='ghost'>Logout</button>
+      </div>
+      <div class='search-box'>
+        <input id='userSearch' type='search' placeholder='Find user by username or email'>
+        <div id='searchResults' class='search-results'></div>
+      </div>
+      <div class='section-title'>Conversations</div>
+      <div id='conversationList' class='conversation-list'></div>
+    </aside>
+
+    <section class='chat-pane'>
+      <header class='chat-header'>
+        <div><h2 id='chatTitle'>Select a conversation</h2><p id='chatPresence'>No conversation selected</p></div>
+        <span id='connectionState' class='connection'>Connecting…</span>
+      </header>
+      <div id='messages' class='messages'><div class='empty'>Choose a conversation to start chatting.</div></div>
+      <form id='messageForm' class='composer'>
+        <input id='messageInput' autocomplete='off' maxlength='4000' placeholder='Write a message…' disabled>
+        <button type='submit' disabled>Send</button>
+      </form>
+      <p id='typingState' class='typing'></p>
+    </section>
+  </section>
+</main>
+<script src='/socket.io/socket.io.js'></script>
+<script type='module' src='/app.js'></script>
+</body>
+</html>
