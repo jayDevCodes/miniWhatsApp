@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
+    "seed": "node scripts/seed.js",
     "test": "node --test",
     "check": "node --check src/server.js && node --check src/app.js && node --check src/services.js && node --check public/app.js"
   },
